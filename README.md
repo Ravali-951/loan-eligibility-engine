@@ -53,31 +53,40 @@ loan-eligibility-engine/
 │
 ├── backend/
 │   ├── ingest/
-│   │   ├── handler.py              # AWS Lambda – CSV ingestion
-│   │   └── requirements.txt
+│   │   ├── handler.py              # AWS Lambda – CSV ingestion from S3
+│   │   └── requirements.txt        # Python dependencies
 │   │
 │   ├── db/
-│   │   └── schema.sql              # PostgreSQL schema
+│   │   └── schema.sql              # PostgreSQL database schema
 │   │
 │   └── utils/
 │       └── db.py                   # Database connection helper
 │
 ├── infrastructure/
-│   └── serverless.yml              # AWS resources deployment
+│   └── serverless.yml              # AWS resources (Lambda, S3, IAM)
 │
 ├── n8n/
 │   ├── docker-compose.yml          # Self-hosted n8n setup
 │   └── workflows/
-│       ├── workflow_a_discovery.json
-│       ├── workflow_b_matching.json
-│       └── workflow_c_notification.json
+│       ├── workflow_a_discovery.json     # Loan product discovery (crawler)
+│       ├── workflow_b_matching.json      # User–loan eligibility matching
+│       └── workflow_c_notification.json  # Email notification workflow
 │
 ├── ui/
-│   └── index.html                  # CSV upload UI
+│   └── index.html                  # Minimal CSV upload interface
+│
+├── screenshots/
+│   ├── architecture-diagram.png
+│   ├── s3-upload.png
+│   ├── lambda-logs.png
+│   ├── postgres-tables.png
+│   ├── n8n-workflow-a.png
+│   ├── n8n-workflow-b.png
+│   ├── n8n-workflow-c.png
+│   └── email-notification.png
 │
 ├── README.md
 └── .gitignore
-
 
 ---
 
